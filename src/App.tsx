@@ -34,7 +34,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-[#0a0f1e] text-white font-['Inter',sans-serif] overflow-x-hidden">
+    <div className="portfolio-shell relative min-h-screen overflow-x-hidden text-white font-['Inter',sans-serif]">
       <Navbar activeSection={activeSection} scrollY={scrollY} />
       <Hero />
       <About />

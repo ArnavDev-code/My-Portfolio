@@ -71,39 +71,33 @@ const colorMap: Record<string, { bg: string; border: string; text: string; badge
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 relative bg-[#080d1a]">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
+    <section id="skills" className="relative px-6 py-24 sm:px-8 lg:px-10">
+      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
 
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-3">What I Work With</p>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
-            Tech <span className="text-cyan-400">Skills</span>
-          </h2>
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-16 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">What I Work With</p>
+          <h2 className="text-4xl font-black text-white md:text-5xl">Tech <span className="text-cyan-400">Skills</span></h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((cat) => {
             const c = colorMap[cat.color];
             return (
               <div
                 key={cat.category}
-                className={`relative p-6 rounded-2xl border ${c.border} ${c.bg} backdrop-blur-sm group hover:scale-[1.02] transition-all duration-300`}
+                className={`glass-panel glass-panel-hover relative overflow-hidden rounded-2xl border ${c.border} ${c.bg} p-6`}
               >
-                {/* Glow on hover */}
-                <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${c.bg} blur-xl -z-10`} />
+                <div className={`absolute inset-0 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100 ${c.bg}`} />
 
-                <div className="flex items-center gap-3 mb-4">
+                <div className="mb-4 flex items-center gap-3">
                   <span className="text-2xl">{cat.icon}</span>
-                  <h3 className={`font-bold text-lg ${c.text}`}>{cat.category}</h3>
+                  <h3 className={`text-lg font-bold ${c.text}`}>{cat.category}</h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className={`px-3 py-1 rounded-full text-xs font-medium border ${c.badge} ${c.badgeText}`}
-                    >
+                    <span key={skill} className={`rounded-full border px-3 py-1 text-xs font-medium ${c.badge} ${c.badgeText}`}>
                       {skill}
                     </span>
                   ))}
@@ -113,10 +107,9 @@ export default function Skills() {
           })}
         </div>
 
-        {/* Proficiency bars */}
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6">Core Proficiencies</h3>
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          <div className="glass-panel rounded-[24px] p-6 sm:p-7">
+            <h3 className="mb-6 text-lg font-bold text-white">Core Proficiencies</h3>
             <div className="space-y-4">
               {[
                 { name: "Python & Data Analysis", pct: 88 },
@@ -127,23 +120,20 @@ export default function Skills() {
                 { name: "Cohort & Funnel Analysis", pct: 83 },
               ].map((item) => (
                 <div key={item.name}>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="text-slate-300 font-medium">{item.name}</span>
-                    <span className="text-cyan-400 font-semibold">{item.pct}%</span>
+                  <div className="mb-1.5 flex justify-between text-sm">
+                    <span className="font-medium text-slate-300">{item.name}</span>
+                    <span className="font-semibold text-cyan-400">{item.pct}%</span>
                   </div>
-                  <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000"
-                      style={{ width: `${item.pct}%` }}
-                    />
+                  <div className="h-2 overflow-hidden rounded-full bg-white/5">
+                    <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-1000" style={{ width: `${item.pct}%` }} />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6">Soft Skills & Domain</h3>
+          <div className="glass-panel rounded-[24px] p-6 sm:p-7">
+            <h3 className="mb-6 text-lg font-bold text-white">Soft Skills & Domain</h3>
             <div className="space-y-4">
               {[
                 { name: "Business Communication", pct: 90 },
@@ -153,15 +143,12 @@ export default function Skills() {
                 { name: "Cross-functional Collaboration", pct: 82 },
               ].map((item) => (
                 <div key={item.name}>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="text-slate-300 font-medium">{item.name}</span>
-                    <span className="text-violet-400 font-semibold">{item.pct}%</span>
+                  <div className="mb-1.5 flex justify-between text-sm">
+                    <span className="font-medium text-slate-300">{item.name}</span>
+                    <span className="font-semibold text-violet-400">{item.pct}%</span>
                   </div>
-                  <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-violet-500 to-pink-500 rounded-full transition-all duration-1000"
-                      style={{ width: `${item.pct}%` }}
-                    />
+                  <div className="h-2 overflow-hidden rounded-full bg-white/5">
+                    <div className="h-full rounded-full bg-gradient-to-r from-violet-500 to-pink-500 transition-all duration-1000" style={{ width: `${item.pct}%` }} />
                   </div>
                 </div>
               ))}

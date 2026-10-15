@@ -1,0 +1,300 @@
+/* ==========================================================================
+   ARNAV NIGAM - TACTILE EDITORIAL NOIR DESIGN SYSTEM
+   Directly matching the award-winning aesthetics of trupti-shriyan.netlify.app
+   ========================================================================== */
+
+:root {
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-hand: 'Caveat', cursive;
+
+  /* Editorial Warm Paper Palette (Trupti's exact color profile) */
+  --bg-cream: #faf7f2;
+  --bg-paper: #f4eee3;
+  --bg-card: #ffffff;
+  --bg-card-warm: #fcfbf8;
+  --ink: #1a1612;
+  --ink-secondary: #534b41;
+  --ink-tertiary: #85796c;
+  --rule: rgba(26, 22, 18, 0.14);
+  --rule-strong: rgba(26, 22, 18, 0.28);
+  --signal: #ec5b2b;
+  --signal-glow: rgba(236, 91, 43, 0.18);
+  --teal-signal: #0d9488;
+  --ledger-grid: rgba(26, 22, 18, 0.045);
+  --washi-tape: rgba(235, 225, 205, 0.75);
+}
+
+.dark {
+  /* Midnight Noir Espresso Palette */
+  --bg-cream: #0f0d0b;
+  --bg-paper: #161310;
+  --bg-card: #1c1915;
+  --bg-card-warm: #221e19;
+  --ink: #faf5ed;
+  --ink-secondary: #b8aea1;
+  --ink-tertiary: #7d7366;
+  --rule: rgba(250, 245, 237, 0.12);
+  --rule-strong: rgba(250, 245, 237, 0.24);
+  --signal: #f97316;
+  --signal-glow: rgba(249, 115, 22, 0.25);
+  --teal-signal: #14b8a6;
+  --ledger-grid: rgba(250, 245, 237, 0.035);
+  --washi-tape: rgba(45, 38, 30, 0.85);
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Tactile Film Grain / Paper Texture Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.dark .film-grain {
+  opacity: 0.05;
+}
+
+/* Ledger graph background */
+.ledger-grid {
+  background-image: 
+    linear-gradient(to right, var(--ledger-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ledger-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Custom fonts */
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+.font-handwriting {
+  font-family: var(--font-hand);
+}
+
+/* Polaroid & Forensic Photo Treatment */
+.polaroid-frame {
+  background-color: #ffffff;
+  padding: 12px 12px 20px 12px;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transform: rotate(-1.5deg);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.dark .polaroid-frame {
+  background-color: #24201b;
+  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.22);
+}
+
+.dark .polaroid-frame:hover {
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+}
+
+/* Washi tape pin effect at top of photo */
+.washi-tape-strip {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 110px;
+  height: 28px;
+  background-color: var(--washi-tape);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 2px dashed rgba(0, 0, 0, 0.15);
+  border-right: 2px dashed rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+/* Forensic rubber stamp */
+.forensic-stamp {
+  display: inline-block;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border: 1.5px solid var(--signal);
+  color: var(--signal);
+  border-radius: 3px;
+  transform: rotate(-3deg);
+  user-select: none;
+}
+
+/* Drafting corner crop marks (+) */
+.drafting-corner {
+  position: relative;
+}
+.drafting-corner::before {
+  content: "+";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-tertiary);
+  opacity: 0.6;
+}
+.drafting-corner::after {
+  content: "+";
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-tertiary);
+  opacity: 0.6;
+}
+
+/* Dossier folder tabs */
+.dossier-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: var(--bg-paper);
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+.dark .dossier-tab {
+  background-color: var(--bg-paper);
+}
+
+/* Signal pulse tag */
+.signal-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--teal-signal);
+}
+
+.signal-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--teal-signal);
+  opacity: 0.5;
+  animation: signal-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes signal-pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70% { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Project case card hover effects */
+.case-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.09);
+  border-color: var(--signal);
+}
+
+.dark .case-card:hover {
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.6);
+  border-color: var(--signal);
+}
+
+/* Nav Link Tracking */
+.nav-link.active {
+  color: var(--signal);
+  font-weight: 700;
+}
+
+.nav-link.active::before {
+  content: '§ ';
+  color: var(--signal);
+}
+
+/* Dotted leader lines for index/tables */
+.leader-line {
+  flex-grow: 1;
+  border-bottom: 1px dotted var(--rule-strong);
+  margin: 0 8px;
+  transform: translateY(-4px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--signal);
+}
+
+/* Print styling */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print, .film-grain {
+    display: none !important;
+  }
+  .case-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+}

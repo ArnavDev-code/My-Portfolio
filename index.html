@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Arnav Nigam · Data Analyst & Business Analyst</title>
+  <meta name="description" content="Arnav Nigam is a Data Analyst who finds the signal in messy data: SQL reconciliation, Power BI, Python modeling, and FinTech fraud detection." />
+  <meta name="theme-color" content="#faf7f2" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Arnav Nigam · Data Analyst Portfolio" />
+  <meta property="og:description" content="Noise in, signal out. An interactive portfolio and investigative case files by Arnav Nigam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/arnav.jpg" />
+
+  <!-- Google Fonts: Fraunces (Editorial Serif), Inter (Sans), JetBrains Mono (Code/Metrics), Caveat (Margin notes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            signal: {
+              DEFAULT: '#ec5b2b',
+              hover: '#d4491c',
+              dark: '#f97316'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Tactile Design System Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="ledger-grid text-stone-900 dark:text-stone-100 antialiased selection:bg-orange-500 selection:text-white">
+
+  <!-- Tactile Film Grain Overlay -->
+  <div class="film-grain"></div>
+
+  <!-- ==================== NOSCRIPT FALLBACK ==================== -->
+  <noscript>
+    <div class="bg-amber-100 dark:bg-amber-950 border-b border-amber-300 p-4 text-center text-amber-900 dark:text-amber-200 font-mono text-sm">
+      ⚠️ <strong>JavaScript is currently disabled.</strong> This interactive experience is optimized for script execution, but a clean plain-text résumé is available at 
+      <a href="./cv/" class="underline font-bold text-orange-700 dark:text-orange-400">/cv/ (View Plain Résumé)</a>.
+    </div>
+  </noscript>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-stone-900 text-stone-100 dark:bg-stone-100 dark:text-stone-900 px-4 py-2.5 rounded shadow-xl font-mono text-xs flex items-center gap-2 pointer-events-none">
+    <span class="text-emerald-500 font-bold">✓</span>
+    <span id="toast-text">Copied to clipboard</span>
+  </div>
+
+  <!-- ==================== HEADER & TOP BAR ==================== -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-[#faf7f2]/90 dark:bg-[#0f0d0b]/90 border-b border-stone-200/80 dark:border-stone-800 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      
+      <!-- Brand & Avatar Pill -->
+      <a href="#signal" class="flex items-center gap-2.5 group">
+        <img src="assets/arnav.jpg" alt="Arnav Nigam" class="w-7 h-7 rounded-full object-cover ring-1 ring-orange-500/50 shadow-sm" />
+        <span class="font-mono text-xs font-bold tracking-widest uppercase text-stone-900 dark:text-stone-100 group-hover:text-orange-600 transition">ARNAV NIGAM</span>
+        <span class="hidden sm:inline-block text-stone-400 dark:text-stone-600 font-mono text-xs">/</span>
+        <div class="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-[11px] font-mono text-emerald-800 dark:text-emerald-400">
+          <span class="signal-dot"></span>
+          <span>AVAILABLE FOR ANALYST ROLES</span>
+        </div>
+      </a>
+
+      <!-- Navigation & Action Buttons -->
+      <nav class="flex items-center gap-1 sm:gap-4 font-mono text-xs">
+        <a href="#origin" class="nav-link hidden md:inline-block text-stone-600 dark:text-stone-400 hover:text-orange-600 transition">01 Origin</a>
+        <a href="#story" class="nav-link hidden lg:inline-block text-stone-600 dark:text-stone-400 hover:text-orange-600 transition">02 Story</a>
+        <a href="#experience" class="nav-link hidden md:inline-block text-stone-600 dark:text-stone-400 hover:text-orange-600 transition">03 Experience</a>
+        <a href="#toolkit" class="nav-link hidden md:inline-block text-stone-600 dark:text-stone-400 hover:text-orange-600 transition">04 Toolkit</a>
+        <a href="#projects" class="nav-link text-stone-600 dark:text-stone-400 hover:text-orange-600 transition">05 Projects</a>
+        <a href="#contact" class="nav-link text-stone-600 dark:text-stone-400 hover:text-orange-600 transition">06 Contact</a>
+
+        <div class="h-4 w-px bg-stone-300 dark:bg-stone-700 mx-1"></div>
+
+        <!-- Plain Résumé / Recruiter Scannable Mode -->
+        <button data-open-recruiter class="px-2.5 py-1 rounded bg-stone-200/80 hover:bg-orange-600 hover:text-white dark:bg-stone-800 dark:hover:bg-orange-600 text-stone-800 dark:text-stone-200 text-xs font-mono font-medium transition flex items-center gap-1">
+          <span>⚡</span>
+          <span class="hidden sm:inline">Recruiter</span> View
+        </button>
+
+        <!-- Dark / Paper Mode Toggle -->
+        <button id="theme-toggle" aria-label="Toggle visual theme" class="p-1.5 rounded text-stone-600 dark:text-stone-400 hover:text-orange-600 hover:bg-stone-200 dark:hover:bg-stone-800 transition">
+          <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==================== 00. HERO & INTERACTIVE SIGNAL ==================== -->
+    <section id="signal" class="relative pt-12 pb-16 md:pt-20 md:pb-24 border-b border-stone-200 dark:border-stone-800 overflow-hidden">
+      <!-- Background interactive waveform canvas -->
+      <div class="absolute inset-0 opacity-40 dark:opacity-30 pointer-events-auto">
+        <canvas id="signal-canvas" class="w-full h-full block"></canvas>
+      </div>
+
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 pointer-events-none">
+        
+        <!-- Case Header Tag & Forensic Stamp -->
+        <div class="flex flex-wrap items-center gap-3 mb-6 pointer-events-auto">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs font-mono text-stone-700 dark:text-stone-300">
+            <span class="text-orange-600 dark:text-orange-500 font-bold">§</span>
+            <span>INVESTIGATIVE DATA & BUSINESS ANALYST</span>
+            <span class="text-stone-300 dark:text-stone-700">|</span>
+            <span>CYBER FORENSICS & RISK</span>
+          </div>
+
+          <span class="forensic-stamp">CASE FILE // 2026</span>
+        </div>
+
+        <!-- Headline & Editorial Hook -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif-editorial font-light tracking-tight text-stone-950 dark:text-stone-50 leading-[1.08] mb-6">
+          Noise in, <em class="italic font-normal text-orange-600 dark:text-orange-500">signal out.</em><br />
+          Data that defends business decisions.
+        </h1>
+
+        <!-- Executive Narrative -->
+        <p class="text-lg sm:text-xl text-stone-700 dark:text-stone-300 font-normal max-w-2xl leading-relaxed mb-8 pointer-events-auto">
+          I am a data-focused analyst who bridges <strong class="font-semibold text-stone-950 dark:text-white">Python statistical modeling</strong>, <strong class="font-semibold text-stone-950 dark:text-white">PostgreSQL query engineering</strong>, and <strong class="font-semibold text-stone-950 dark:text-white">executive BI dashboards</strong>. I uncover the anomalies hidden within high-volume transactions and rebuild fragmented pipelines into automated intelligence.
+        </p>
+
+        <!-- CTA & Recruiter Shortcuts -->
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-xs pointer-events-auto mb-14">
+          <a href="#projects" class="px-5 py-2.5 bg-stone-950 hover:bg-orange-600 text-stone-50 dark:bg-stone-100 dark:text-stone-950 dark:hover:bg-orange-600 dark:hover:text-white font-medium rounded transition flex items-center gap-2 shadow-sm">
+            <span>Explore Case Files</span>
+            <span>↓</span>
+          </a>
+
+          <button data-open-recruiter class="px-5 py-2.5 bg-stone-200/90 hover:bg-stone-300 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-medium rounded transition flex items-center gap-2">
+            <span>⚡ In a Hurry? Recruiter View</span>
+          </button>
+
+          <a href="./cv/" class="px-4 py-2.5 text-stone-600 dark:text-stone-400 hover:text-orange-600 underline underline-offset-4 transition">
+            Plain Text Résumé →
+          </a>
+        </div>
+
+        <!-- Proof Bar / Metrics Ticker with handwritten annotations -->
+        <div class="pt-6 border-t border-stone-200/70 dark:border-stone-800/80 pointer-events-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative">
+          
+          <div class="p-3.5 bg-white/70 dark:bg-stone-900/60 rounded border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="text-2xl sm:text-3xl font-mono font-bold text-orange-600 dark:text-orange-500">1st / 25+</div>
+            <div class="text-xs font-semibold text-stone-900 dark:text-stone-200 mt-1">VIT Bhopal Datafest</div>
+            <div class="text-[11px] text-stone-500 font-mono">Predictive model champion</div>
+          </div>
+
+          <div class="p-3.5 bg-white/70 dark:bg-stone-900/60 rounded border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="text-2xl sm:text-3xl font-mono font-bold text-orange-600 dark:text-orange-500">590K+</div>
+            <div class="text-xs font-semibold text-stone-900 dark:text-stone-200 mt-1">UPI Transactions Scored</div>
+            <div class="text-[11px] text-stone-500 font-mono">FinTech risk architecture</div>
+          </div>
+
+          <div class="p-3.5 bg-white/70 dark:bg-stone-900/60 rounded border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="text-2xl sm:text-3xl font-mono font-bold text-orange-600 dark:text-orange-500">-30%</div>
+            <div class="text-xs font-semibold text-stone-900 dark:text-stone-200 mt-1">ETL Preparation Latency</div>
+            <div class="text-[11px] text-stone-500 font-mono">Laneway analytics intern</div>
+          </div>
+
+          <div class="p-3.5 bg-white/70 dark:bg-stone-900/60 rounded border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="text-2xl sm:text-3xl font-mono font-bold text-orange-600 dark:text-orange-500">0.92</div>
+            <div class="text-xs font-semibold text-stone-900 dark:text-stone-200 mt-1">Fraud Model ROC-AUC</div>
+            <div class="text-[11px] text-stone-500 font-mono">79% prec. on rare 3.5% class</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 01. ORIGIN & ABOUT ME WITH POLAROID PORTRAIT ==================== -->
+    <section id="origin" class="py-16 md:py-24 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <!-- Dossier Tab Header -->
+        <div class="mb-4">
+          <span class="dossier-tab">
+            <span class="text-orange-600 font-bold">01</span>
+            <span>/</span>
+            <span>ORIGIN & EVIDENCE DOSSIER</span>
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-serif-editorial font-light text-stone-950 dark:text-stone-50 mb-10">
+          "The analyst who checks the underlying distribution before believing the summary metric."
+        </h2>
+
+        <!-- 3-Column / Balanced Dossier Layout including Polaroid Photo -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Column 1: Polaroid Evidence Photo Frame (4 cols) -->
+          <div class="lg:col-span-4 flex flex-col items-center">
+            <div class="relative w-full max-w-[280px] polaroid-frame group">
+              <!-- Washi Tape Pin -->
+              <div class="washi-tape-strip"></div>
+
+              <!-- Portrait Photo -->
+              <div class="overflow-hidden rounded-sm bg-stone-100 border border-stone-200 dark:border-stone-700 aspect-square">
+                <img 
+                  src="assets/arnav.jpg" 
+                  alt="Arnav Nigam portrait" 
+                  class="w-full h-full object-cover grayscale-[15%] contrast-[1.05] group-hover:grayscale-0 group-hover:scale-105 transition duration-500" 
+                />
+              </div>
+
+              <!-- Polaroid Caption Area -->
+              <div class="pt-3 text-center">
+                <div class="font-mono text-xs font-bold text-stone-900 dark:text-stone-100 tracking-wider">
+                  ARNAV NIGAM
+                </div>
+                <div class="font-handwriting text-base text-orange-600 dark:text-orange-400 mt-0.5">
+                  "Ready to dig into the rows everyone else ignores."
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-mono text-stone-400 dark:text-stone-500 pt-2 border-t border-stone-200 dark:border-stone-700/60 mt-2">
+                  <span>EVIDENCE #01</span>
+                  <span>VIT BHOPAL '27</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Forensic Verification Badge -->
+            <div class="mt-4 px-3 py-1 bg-stone-100 dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 text-[11px] font-mono text-stone-600 dark:text-stone-400 flex items-center gap-2">
+              <span class="signal-dot"></span>
+              <span>IDENTITY & DOSSIER VERIFIED</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Narrative Bio (4 cols) -->
+          <div class="lg:col-span-4 space-y-4 text-stone-700 dark:text-stone-300 text-sm leading-relaxed">
+            <p>
+              I began my path in Computer Science specializing in <strong>Cyber Security & Digital Forensics</strong> at VIT Bhopal. That forensic mindset shaped how I view data: not as passive numbers in a database, but as breadcrumbs of human behavior, systemic bottlenecks, or fraud rings.
+            </p>
+            <p>
+              At <strong>Laneway</strong>, I audited 6 disparate operational datasets, resolving inconsistencies and writing 15+ PostgreSQL queries analyzing conversion funnels and lead quality. I built automated ETL pipelines cutting preparation time by 30%, supplying clean data into ML models and creating 4+ stakeholder dashboards.
+            </p>
+            <p>
+              From scoring 590K UPI records to tackling &lt;0.2% class imbalance in credit card swipes, my standard is clear: <strong>extract verifiable signal that protects capital and fuels decision-making.</strong>
+            </p>
+          </div>
+
+          <!-- Column 3: Structured Metadata Table (4 cols) -->
+          <div class="lg:col-span-4 bg-[#f4eee3] dark:bg-stone-900 p-5 rounded-lg border border-stone-200 dark:border-stone-800 font-mono text-xs space-y-2.5">
+            <div class="text-xs uppercase tracking-wider font-bold text-stone-900 dark:text-stone-100 border-b border-stone-300 dark:border-stone-700 pb-2 flex justify-between items-center">
+              <span>METADATA CARD</span>
+              <span class="text-orange-600 font-normal">SEC-2026</span>
+            </div>
+
+            <div class="flex justify-between py-1 border-b border-stone-200/80 dark:border-stone-800">
+              <span class="text-stone-500">NAME</span>
+              <span class="text-stone-900 dark:text-stone-200 font-semibold">Arnav Nigam</span>
+            </div>
+
+            <div class="flex justify-between py-1 border-b border-stone-200/80 dark:border-stone-800">
+              <span class="text-stone-500">ROLE</span>
+              <span class="text-stone-900 dark:text-stone-200 font-semibold">Data / Business Analyst</span>
+            </div>
+
+            <div class="flex justify-between py-1 border-b border-stone-200/80 dark:border-stone-800">
+              <span class="text-stone-500">DEGREE</span>
+              <span class="text-stone-900 dark:text-stone-200 text-right">B.Tech CSE (Cyber)<br /><span class="text-stone-500">VIT Bhopal University</span></span>
+            </div>
+
+            <div class="flex justify-between py-1 border-b border-stone-200/80 dark:border-stone-800">
+              <span class="text-stone-500">SPECIALTY</span>
+              <span class="text-stone-900 dark:text-stone-200 text-right">Fraud Anomaly Detection & SQL</span>
+            </div>
+
+            <div class="flex justify-between py-1 border-b border-stone-200/80 dark:border-stone-800">
+              <span class="text-stone-500">DAILY STACK</span>
+              <span class="text-stone-900 dark:text-stone-200 text-right">Python, SQL, Power BI</span>
+            </div>
+
+            <div class="flex justify-between py-1 border-b border-stone-200/80 dark:border-stone-800">
+              <span class="text-stone-500">LOCATION</span>
+              <span class="text-stone-900 dark:text-stone-200">India · Remote / Relocate</span>
+            </div>
+
+            <div class="flex justify-between pt-1">
+              <span class="text-stone-500">STATUS</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                <span class="signal-dot"></span> Available Immediately
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 02. SIGNATURE STORY / INVESTIGATION ==================== -->
+    <section id="story" class="py-16 md:py-24 border-b border-stone-200 dark:border-stone-800 bg-[#f4eee3]/40 dark:bg-stone-900/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-4">
+          <span class="dossier-tab">
+            <span class="text-orange-600 font-bold">02</span>
+            <span>/</span>
+            <span>THE LANEWAY INVESTIGATION</span>
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-serif-editorial font-light text-stone-950 dark:text-stone-50 mb-4">
+          From Fragmented Datasets to 5 Actionable Executive KPIs
+        </h2>
+        <p class="text-base text-stone-600 dark:text-stone-400 max-w-2xl mb-12">
+          How I approached the end-to-end data reconciliation and business analytics problem during my internship at Laneway.
+        </p>
+
+        <!-- Chronological Investigation Steps -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+          
+          <div class="p-5 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="font-mono text-xs font-bold text-orange-600 mb-2">PHASE 01</div>
+              <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-2">The Discrepancy</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                Inherited 6 disjoint datasets with duplicate IDs, schema drift, and conflicting lead conversion timestamps.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] font-mono text-stone-500">
+              Resolved 5+ critical inconsistencies
+            </div>
+          </div>
+
+          <div class="p-5 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="font-mono text-xs font-bold text-orange-600 mb-2">PHASE 02</div>
+              <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-2">Deep SQL Audit</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                Wrote 15+ optimized PostgreSQL queries leveraging window functions and CTEs across 3 key business units.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] font-mono text-stone-500">
+              Ranked channel attribution
+            </div>
+          </div>
+
+          <div class="p-5 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="font-mono text-xs font-bold text-orange-600 mb-2">PHASE 03</div>
+              <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-2">ETL Overhaul</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                Built Python-driven automated ETL jobs that consolidated source tables and engineered clean features for model feeding.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] font-mono text-stone-500">
+              Cut prep latency by 30%
+            </div>
+          </div>
+
+          <div class="p-5 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="font-mono text-xs font-bold text-orange-600 mb-2">PHASE 04</div>
+              <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-2">BI Dashboards</h3>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                Translated complex relational data into 4+ interactive dashboards in Power BI and Google Looker Studio.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] font-mono text-stone-500">
+              Used by team leads weekly
+            </div>
+          </div>
+
+          <div class="p-5 bg-orange-600 text-white rounded border border-orange-700 flex flex-col justify-between shadow-md">
+            <div>
+              <div class="font-mono text-xs font-bold text-orange-200 mb-2">PHASE 05</div>
+              <h3 class="font-serif-editorial text-lg text-white mb-2">Strategic Impact</h3>
+              <p class="text-xs text-orange-100 leading-relaxed">
+                Replaced noisy vanity metrics with 5 high-conviction KPIs, arming leadership with daily operational clarity.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-orange-400 text-[11px] font-mono text-white font-bold">
+              ✓ Verified in Certificate
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 03. PROFESSIONAL EXPERIENCE ==================== -->
+    <section id="experience" class="py-16 md:py-24 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-4">
+          <span class="dossier-tab">
+            <span class="text-orange-600 font-bold">03</span>
+            <span>/</span>
+            <span>WORK EXPERIENCE</span>
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-serif-editorial font-light text-stone-950 dark:text-stone-50 mb-10">
+          Hands-on Enterprise Analytics & Pipeline Engineering
+        </h2>
+
+        <!-- Laneway Experience Card -->
+        <div class="p-6 sm:p-8 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 relative">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-200 dark:border-stone-800 pb-4 mb-6">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold font-serif-editorial text-stone-900 dark:text-stone-100">Business Analyst Intern</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300">Laneway</span>
+              </div>
+              <p class="text-xs font-mono text-stone-500 mt-0.5">Remote / India · Enterprise Decision Intelligence</p>
+            </div>
+            <div class="font-mono text-xs text-stone-600 dark:text-stone-400">
+              March 2026 – June 2026
+            </div>
+          </div>
+
+          <!-- Impact Deliverables List -->
+          <ul class="space-y-3.5 text-stone-700 dark:text-stone-300 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 font-mono mt-0.5">▸</span>
+              <span><strong>Data Quality & Exploratory Analysis:</strong> Cleaned and preprocessed 6 cross-functional datasets, resolving critical anomalies and running descriptive statistical EDA to surface 5+ actionable business quality patterns.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 font-mono mt-0.5">▸</span>
+              <span><strong>Advanced PostgreSQL Querying:</strong> Wrote 15+ optimized PostgreSQL queries analyzing lead quality, customer acquisition channels, and conversion friction across 3 key business units.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 font-mono mt-0.5">▸</span>
+              <span><strong>Automated ETL Pipeline Architecture:</strong> Built end-to-end Python ETL pipelines across 6+ disparate data feeds, cutting data preparation latency by <strong>30%</strong> and supplying clean features for predictive ML training.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 font-mono mt-0.5">▸</span>
+              <span><strong>Stakeholder KPI Dashboards:</strong> Translated complex analytical findings into 4+ interactive dashboards (Google Looker Studio & Power BI), shifting executive reporting from vanity counts to <strong>5 actionable KPIs</strong>.</span>
+            </li>
+          </ul>
+
+          <div class="mt-6 pt-4 border-t border-stone-100 dark:border-stone-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-700 dark:text-stone-300">PostgreSQL</span>
+              <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-700 dark:text-stone-300">Python (Pandas)</span>
+              <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-700 dark:text-stone-300">Power BI</span>
+              <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-700 dark:text-stone-300">Looker Studio</span>
+              <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-700 dark:text-stone-300">ETL</span>
+            </div>
+            <span class="text-stone-500 italic">Certificate Verified & Available</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 04. TECHNICAL TOOLKIT & SKILLS ==================== -->
+    <section id="toolkit" class="py-16 md:py-24 border-b border-stone-200 dark:border-stone-800 bg-[#f4eee3]/30 dark:bg-stone-950/40">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-4">
+          <span class="dossier-tab">
+            <span class="text-orange-600 font-bold">04</span>
+            <span>/</span>
+            <span>TECHNICAL TOOLKIT</span>
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-serif-editorial font-light text-stone-950 dark:text-stone-50 mb-10">
+          Tools Engineered for Rigorous Analytical Delivery
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Category 1: Languages & Modeling -->
+          <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="font-mono text-xs font-bold text-orange-600 mb-2">01 · PROGRAMMING & MODELING</div>
+            <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-3">Python Data Stack</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">Core environment for statistical manipulation, wrangling, and predictive modeling.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Python 3</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Pandas</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">NumPy</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Scikit-learn</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Matplotlib</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Seaborn</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Imbalanced-learn</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Relational Databases & SQL -->
+          <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="font-mono text-xs font-bold text-orange-600 mb-2">02 · RELATIONAL DATABASES</div>
+            <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-3">Advanced SQL & Schemas</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">High-efficiency data extraction, reconciliation, and window analytical computations.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">PostgreSQL</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">MySQL</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Window Functions</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">CTEs</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Advanced Joins</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Query Optimization</span>
+            </div>
+          </div>
+
+          <!-- Category 3: BI & Executive Reporting -->
+          <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="font-mono text-xs font-bold text-orange-600 mb-2">03 · VISUAL INTELLIGENCE</div>
+            <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-3">Enterprise BI Solutions</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">Translating high-cardinality databases into interactive executive control centers.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Power BI</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">DAX</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Looker Studio</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Microsoft Excel</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Google Sheets</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Executive Dashboards</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Analytics Techniques -->
+          <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="font-mono text-xs font-bold text-orange-600 mb-2">04 · METHODOLOGY</div>
+            <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-3">Techniques & Pipeline Design</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">Frameworks for validating data fidelity and preventing bias prior to reporting.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">EDA</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">ETL Pipelines</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Data Wrangling</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Statistical Analysis</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">KPI Architecture</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Hypothesis Testing</span>
+            </div>
+          </div>
+
+          <!-- Category 5: Developer Tools -->
+          <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="font-mono text-xs font-bold text-orange-600 mb-2">05 · WORKFLOW</div>
+            <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-3">Tools & Environments</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">Version control, notebook experimentation, and database administrative clients.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Jupyter Notebook</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Git</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">GitHub</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">pgAdmin 4</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">VS Code</span>
+            </div>
+          </div>
+
+          <!-- Category 6: Domain Knowledge -->
+          <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="font-mono text-xs font-bold text-orange-600 mb-2">06 · DOMAIN KNOWLEDGE</div>
+            <h3 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100 mb-3">Cyber Forensics & Risk</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-400 mb-4">Investigative mindset applied to banking, payments, and customer churn risk.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">FinTech Fraud Detection</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Class Imbalance</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Customer Churn</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">SME Lending Risk</span>
+              <span class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 border border-stone-200 dark:border-stone-700">Digital Forensics</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 05. PROJECTS SHOWCASE & INVESTIGATIONS ==================== -->
+    <section id="projects" class="py-16 md:py-24 border-b border-stone-200 dark:border-stone-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <div class="mb-3">
+              <span class="dossier-tab">
+                <span class="text-orange-600 font-bold">05</span>
+                <span>/</span>
+                <span>INVESTIGATIONS & REPOSITORIES</span>
+              </span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-serif-editorial font-light text-stone-950 dark:text-stone-50">
+              Every project starts with a sharp business question.
+            </h2>
+          </div>
+
+          <!-- Category Filters -->
+          <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+            <button data-filter="all" class="filter-btn px-3 py-1.5 rounded border border-orange-500 bg-orange-500 text-white transition">All Files</button>
+            <button data-filter="fraud" class="filter-btn px-3 py-1.5 rounded border border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-orange-500 transition">Fraud & Risk</button>
+            <button data-filter="bi" class="filter-btn px-3 py-1.5 rounded border border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-orange-500 transition">Power BI</button>
+            <button data-filter="ml" class="filter-btn px-3 py-1.5 rounded border border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-orange-500 transition">Machine Learning</button>
+            <button data-filter="sql" class="filter-btn px-3 py-1.5 rounded border border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-orange-500 transition">SQL</button>
+          </div>
+        </div>
+
+        <!-- Project Cases Grid -->
+        <div class="space-y-8">
+
+          <!-- PROJECT 1: UPI Fraud -->
+          <article data-category="fraud ml sql" class="project-item case-card p-6 sm:p-8 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+              <div class="flex items-center gap-2 font-mono text-xs text-orange-600 dark:text-orange-500">
+                <span class="font-bold">CASE FILE #001</span>
+                <span>·</span>
+                <span>UPI / FINTECH FRAUD DETECTION</span>
+              </div>
+              <div class="px-2.5 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 font-mono text-xs font-semibold">
+                0.92 ROC-AUC · 590K Records
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-serif-editorial text-stone-900 dark:text-stone-100 mb-2">
+              UPI Real-Time Fraud Transaction Detection & Risk Scoring
+            </h3>
+
+            <!-- Provocative Question -->
+            <blockquote class="italic text-stone-700 dark:text-stone-300 text-base mb-4 border-l-2 border-orange-500 pl-4 py-0.5">
+              "When 590,000+ digital transactions pass through UPI gateways, how do you isolate high-velocity fraud rings in milliseconds without damaging good-user checkout conversion?"
+            </blockquote>
+
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              Analyzed 590K+ records with 434 high-dimensional attributes. Formulated 15+ optimized PostgreSQL queries to quantify fraud patterns across product types, card networks, and velocity time-windows. Validated segmentation with a Random Forest classifier delivering 79% precision on a rare 3.5% prevalence fraud class.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">PostgreSQL</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Python</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Random Forest</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Risk Analytics</span>
+              </div>
+
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <button data-open-case="upi-fraud" class="px-3.5 py-1.5 rounded bg-orange-600 hover:bg-orange-700 text-white font-medium transition flex items-center gap-1.5">
+                  <span>OPEN CASE FILE</span>
+                  <span>+</span>
+                </button>
+                <a href="https://github.com/ArnavDev-code/UPI-Fraud-Transaction-Detection" target="_blank" rel="noopener" class="text-stone-600 dark:text-stone-400 hover:text-orange-600 underline">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: HIFS Credit Card Fraud -->
+          <article data-category="fraud ml" class="project-item case-card p-6 sm:p-8 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+              <div class="flex items-center gap-2 font-mono text-xs text-orange-600 dark:text-orange-500">
+                <span class="font-bold">CASE FILE #002</span>
+                <span>·</span>
+                <span>EXTREME IMBALANCE SCORING</span>
+              </div>
+              <div class="px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-mono text-xs font-semibold">
+                91.4% Recall on &lt;0.2% Prevalence
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-serif-editorial text-stone-900 dark:text-stone-100 mb-2">
+              HIFS: Hybrid Imbalanced Fraud Scoring Framework
+            </h3>
+
+            <blockquote class="italic text-stone-700 dark:text-stone-300 text-base mb-4 border-l-2 border-orange-500 pl-4 py-0.5">
+              "How do you train fraud classifiers when legitimate transactions outnumber fraudulent ones 500-to-1, and standard classifiers predict the majority class 99.8% of the time?"
+            </blockquote>
+
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              Architected a multi-stage scoring framework combining unsupervised anomaly awareness (Isolation Forest) with targeted synthetic minority oversampling (SMOTE) and a soft-voting ensemble across 280,000+ transactions to prevent bank revenue leakage.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Python</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Isolation Forest</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">SMOTE</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Voting Ensemble</span>
+              </div>
+
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <button data-open-case="hifs-fraud" class="px-3.5 py-1.5 rounded bg-orange-600 hover:bg-orange-700 text-white font-medium transition flex items-center gap-1.5">
+                  <span>OPEN CASE FILE</span>
+                  <span>+</span>
+                </button>
+                <a href="https://github.com/ArnavDev-code/HIFS-Credit-Card-Fraud-Detection" target="_blank" rel="noopener" class="text-stone-600 dark:text-stone-400 hover:text-orange-600 underline">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: SME Lending Risk -->
+          <article data-category="bi fraud" class="project-item case-card p-6 sm:p-8 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+              <div class="flex items-center gap-2 font-mono text-xs text-orange-600 dark:text-orange-500">
+                <span class="font-bold">CASE FILE #003</span>
+                <span>·</span>
+                <span>PORTFOLIO CREDIT RISK</span>
+              </div>
+              <div class="px-2.5 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-mono text-xs font-semibold">
+                2,000,000+ Loans Analyzed
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-serif-editorial text-stone-900 dark:text-stone-100 mb-2">
+              SME Lending Risk & Default Performance Dashboard
+            </h3>
+
+            <blockquote class="italic text-stone-700 dark:text-stone-300 text-base mb-4 border-l-2 border-orange-500 pl-4 py-0.5">
+              "Across a multi-billion dollar portfolio of 2,000,000+ originations, which borrower cohorts and sub-grades quietly drive 80% of institutional capital losses?"
+            </blockquote>
+
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              Cleaned and preprocessed 1.6 GB of compressed LendingClub loan data. Engineered portfolio default metrics, vintage risk cohorts, and created an executive multi-page Power BI dashboard with complex DAX measures for Expected Loss and Risk-Adjusted Return.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Power BI</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">DAX</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Python</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Risk Modeling</span>
+              </div>
+
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <button data-open-case="sme-lending" class="px-3.5 py-1.5 rounded bg-orange-600 hover:bg-orange-700 text-white font-medium transition flex items-center gap-1.5">
+                  <span>OPEN CASE FILE</span>
+                  <span>+</span>
+                </button>
+                <a href="https://github.com/ArnavDev-code/SME_Lending_Risk_Dashboard" target="_blank" rel="noopener" class="text-stone-600 dark:text-stone-400 hover:text-orange-600 underline">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Customer Churn -->
+          <article data-category="ml bi" class="project-item case-card p-6 sm:p-8 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+              <div class="flex items-center gap-2 font-mono text-xs text-orange-600 dark:text-orange-500">
+                <span class="font-bold">CASE FILE #004</span>
+                <span>·</span>
+                <span>CUSTOMER RETENTION INTELLIGENCE</span>
+              </div>
+              <div class="px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-mono text-xs font-semibold">
+                82% Acc · 20% Projected Churn Cut
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-serif-editorial text-stone-900 dark:text-stone-100 mb-2">
+              Customer Churn Behavioral Segmentation & Retention Strategy
+            </h3>
+
+            <blockquote class="italic text-stone-700 dark:text-stone-300 text-base mb-4 border-l-2 border-orange-500 pl-4 py-0.5">
+              "Why are newly acquired customers leaving within the first 90 days, and what targeted interventions can prevent \$500K in annual recurring revenue loss?"
+            </blockquote>
+
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              Analyzed 45+ customer attributes to identify the top 5 churn predictors and clustered customers into 4 behavioral groups (K-Means) for targeted retention. Backed the analysis with a churn model (82% accuracy, 85% precision) and formulated 3 actionable strategies.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Python</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">K-Means</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Scikit-learn</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Power BI</span>
+              </div>
+
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <button data-open-case="customer-churn" class="px-3.5 py-1.5 rounded bg-orange-600 hover:bg-orange-700 text-white font-medium transition flex items-center gap-1.5">
+                  <span>OPEN CASE FILE</span>
+                  <span>+</span>
+                </button>
+                <a href="https://github.com/ArnavDev-code/Customer-Churn-Prediction" target="_blank" rel="noopener" class="text-stone-600 dark:text-stone-400 hover:text-orange-600 underline">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: Data Structures & Advanced SQL -->
+          <article data-category="sql" class="project-item case-card p-6 sm:p-8 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+              <div class="flex items-center gap-2 font-mono text-xs text-orange-600 dark:text-orange-500">
+                <span class="font-bold">CASE FILE #005</span>
+                <span>·</span>
+                <span>ALGORITHMIC SQL RECONCILIATION</span>
+              </div>
+              <div class="px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-mono text-xs font-semibold">
+                PostgreSQL & MySQL Mastery
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-serif-editorial text-stone-900 dark:text-stone-100 mb-2">
+              Advanced SQL & Relational Problem Solving Repository
+            </h3>
+
+            <blockquote class="italic text-stone-700 dark:text-stone-300 text-base mb-4 border-l-2 border-orange-500 pl-4 py-0.5">
+              "How do you query massive normalized schemas without degrading production database performance through unoptimized joins and full-table scans?"
+            </blockquote>
+
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              A comprehensive library of advanced relational database implementations tackling multi-table reconciliation, sliding window computations, consecutive streak identification, recursive queries, and schema query execution planning.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">PostgreSQL</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">CTEs</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Window Functions</span>
+                <span class="px-2 py-0.5 rounded bg-[#f4eee3] dark:bg-stone-800 text-stone-600 dark:text-stone-400">Query Optimization</span>
+              </div>
+
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <button data-open-case="sql-data-structures" class="px-3.5 py-1.5 rounded bg-orange-600 hover:bg-orange-700 text-white font-medium transition flex items-center gap-1.5">
+                  <span>OPEN CASE FILE</span>
+                  <span>+</span>
+                </button>
+                <a href="https://github.com/ArnavDev-code/Data-Structure-And-Databases" target="_blank" rel="noopener" class="text-stone-600 dark:text-stone-400 hover:text-orange-600 underline">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 06. EDUCATION & CREDENTIALS ==================== -->
+    <section id="credentials" class="py-16 md:py-24 border-b border-stone-200 dark:border-stone-800 bg-[#f4eee3]/40 dark:bg-stone-900/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-4">
+          <span class="dossier-tab">
+            <span class="text-orange-600 font-bold">06</span>
+            <span>/</span>
+            <span>EDUCATION & VERIFIED CREDENTIALS</span>
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-serif-editorial font-light text-stone-950 dark:text-stone-50 mb-10">
+          Academic Foundation & Industry Certifications
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Education Column -->
+          <div class="space-y-6">
+            <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-stone-500">Education</h3>
+
+            <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100">VIT Bhopal University</h4>
+                <span class="font-mono text-xs text-stone-500">2023 – 2027</span>
+              </div>
+              <p class="text-sm font-medium text-orange-600 dark:text-orange-500 mb-2">B.Tech in Computer Science</p>
+              <p class="text-xs text-stone-600 dark:text-stone-400">
+                Specialization in Cyber Security & Digital Forensics. Focus on anomaly modeling, database structures, and digital investigative methodologies.
+              </p>
+            </div>
+
+            <div class="p-6 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 drafting-corner">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4 class="font-serif-editorial text-lg text-stone-900 dark:text-stone-100">Shree Sanatan Dharm Education Center</h4>
+                <span class="font-mono text-xs text-stone-500">2022 – 2023</span>
+              </div>
+              <p class="text-xs text-stone-600 dark:text-stone-400">
+                Class XII – Senior Secondary Education (Mathematics, Physics, Computer Science).
+              </p>
+            </div>
+
+            <!-- Hackathon Achievement Box -->
+            <div class="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-stone-900 dark:to-orange-950/30 rounded-lg border border-amber-200 dark:border-orange-900/50">
+              <div class="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold mb-1">
+                <span>🏆 1ST PLACE WINNER</span>
+                <span>·</span>
+                <span>VIT BHOPAL DATAFEST 2024</span>
+              </div>
+              <p class="text-xs text-stone-700 dark:text-stone-300 leading-relaxed">
+                Ranked 1st out of 25+ competing teams in an intensive 6-hour data analytics hackathon, engineering the highest-performing predictive model under strict time constraints.
+              </p>
+              <div class="mt-3 text-[11px] font-mono text-stone-500">
+                • Co-Lead, IoS Club, VIT Bhopal (Mentored technical workshops on data and development)
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications Column -->
+          <div>
+            <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-stone-500 mb-6">Industry Certifications</h3>
+
+            <div class="space-y-3 font-mono text-xs">
+              
+              <div class="p-4 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-stone-900 dark:text-stone-100">Google IT Support Professional Certificate</div>
+                  <div class="text-[11px] text-stone-500">Google · Systems & Infrastructure Diagnostics</div>
+                </div>
+                <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓</span>
+              </div>
+
+              <div class="p-4 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-stone-900 dark:text-stone-100">SQL (Intermediate) Skills Certification</div>
+                  <div class="text-[11px] text-stone-500">HackerRank · Complex Joins & Subqueries</div>
+                </div>
+                <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓</span>
+              </div>
+
+              <div class="p-4 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-stone-900 dark:text-stone-100">Tata - Data Visualisation: Empowering Business</div>
+                  <div class="text-[11px] text-stone-500">Forage / Tata Insights · Executive Storytelling</div>
+                </div>
+                <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓</span>
+              </div>
+
+              <div class="p-4 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-stone-900 dark:text-stone-100">Deloitte Australia - Data Analytics Job Simulation</div>
+                  <div class="text-[11px] text-stone-500">Deloitte · Forensic Analytics & Data Prep</div>
+                </div>
+                <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓</span>
+              </div>
+
+              <div class="p-4 bg-white dark:bg-stone-900 rounded border border-stone-200 dark:border-stone-800 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-stone-900 dark:text-stone-100">Accenture North America - Data Analytics Simulation</div>
+                  <div class="text-[11px] text-stone-500">Accenture · Data Modeling & Strategic Communication</div>
+                </div>
+                <span class="text-emerald-600 dark:text-emerald-400 text-sm">✓</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 07. CONTACT & GET IN TOUCH ==================== -->
+    <section id="contact" class="py-16 md:py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-4">
+          <span class="dossier-tab">
+            <span class="text-orange-600 font-bold">07</span>
+            <span>/</span>
+            <span>TRANSMISSION & CONTACT</span>
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-serif-editorial font-light text-stone-950 dark:text-stone-50 mb-6">
+          Let’s discuss what the numbers are really saying.
+        </h2>
+
+        <p class="text-lg text-stone-700 dark:text-stone-300 max-w-xl mb-10 leading-relaxed">
+          I am actively seeking <strong>Data Analyst</strong> and <strong>Business Analyst</strong> opportunities where high-velocity data, SQL pipelines, and predictive rigor matter.
+        </p>
+
+        <!-- Interactive Direct Contact Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs mb-12">
+          
+          <!-- Email Card with 1-click Copy -->
+          <div class="p-5 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="text-stone-500 mb-1 flex justify-between items-center">
+                <span>EMAIL</span>
+                <span class="text-orange-500">✉</span>
+              </div>
+              <div class="font-bold text-stone-900 dark:text-stone-100 truncate mb-3" title="arnavnigamknp@gmail.com">
+                arnavnigamknp@gmail.com
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <a href="mailto:arnavnigamknp@gmail.com" class="px-2.5 py-1 bg-[#f4eee3] dark:bg-stone-800 hover:bg-orange-600 hover:text-white rounded transition">Mail ↗</a>
+              <button data-copy="arnavnigamknp@gmail.com" class="px-2.5 py-1 bg-[#f4eee3] dark:bg-stone-800 hover:bg-orange-600 hover:text-white rounded transition">Copy</button>
+            </div>
+          </div>
+
+          <!-- Phone Card with 1-click Copy -->
+          <div class="p-5 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="text-stone-500 mb-1 flex justify-between items-center">
+                <span>PHONE</span>
+                <span class="text-orange-500">📞</span>
+              </div>
+              <div class="font-bold text-stone-900 dark:text-stone-100 mb-3">
+                +91 9415478274
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <a href="tel:+919415478274" class="px-2.5 py-1 bg-[#f4eee3] dark:bg-stone-800 hover:bg-orange-600 hover:text-white rounded transition">Call ↗</a>
+              <button data-copy="+919415478274" class="px-2.5 py-1 bg-[#f4eee3] dark:bg-stone-800 hover:bg-orange-600 hover:text-white rounded transition">Copy</button>
+            </div>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <div class="p-5 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="text-stone-500 mb-1 flex justify-between items-center">
+                <span>LINKEDIN</span>
+                <span class="text-orange-500">💼</span>
+              </div>
+              <div class="font-bold text-stone-900 dark:text-stone-100 mb-3">
+                /in/arnavnigam
+              </div>
+            </div>
+            <div>
+              <a href="https://linkedin.com/in/arnavnigam" target="_blank" rel="noopener" class="inline-block px-2.5 py-1 bg-[#f4eee3] dark:bg-stone-800 hover:bg-orange-600 hover:text-white rounded transition">Connect ↗</a>
+            </div>
+          </div>
+
+          <!-- GitHub Card -->
+          <div class="p-5 bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 flex flex-col justify-between drafting-corner">
+            <div>
+              <div class="text-stone-500 mb-1 flex justify-between items-center">
+                <span>GITHUB</span>
+                <span class="text-orange-500">💻</span>
+              </div>
+              <div class="font-bold text-stone-900 dark:text-stone-100 mb-3">
+                /ArnavDev-code
+              </div>
+            </div>
+            <div>
+              <a href="https://github.com/ArnavDev-code" target="_blank" rel="noopener" class="inline-block px-2.5 py-1 bg-[#f4eee3] dark:bg-stone-800 hover:bg-orange-600 hover:text-white rounded transition">Repositories ↗</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Plain Résumé Direct Link Banner -->
+        <div class="p-6 bg-[#f4eee3] dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+          <div>
+            <div class="font-bold text-stone-900 dark:text-stone-100 mb-1">Looking for a standard recruiter-scannable résumé?</div>
+            <div class="text-stone-500">Zero script dependencies, instant rendering, clean print stylesheet.</div>
+          </div>
+          <div class="flex gap-3">
+            <button data-open-recruiter class="px-4 py-2 bg-stone-900 text-stone-100 dark:bg-stone-100 dark:text-stone-900 rounded font-semibold hover:bg-orange-600 dark:hover:bg-orange-500 transition">
+              Open Scannable View
+            </button>
+            <a href="./cv/" class="px-4 py-2 bg-stone-200 dark:bg-stone-800 text-stone-800 dark:text-stone-200 rounded font-semibold hover:bg-orange-600 hover:text-white transition">
+              View /cv/ →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-stone-200 dark:border-stone-800 py-8 bg-[#f4eee3]/60 dark:bg-stone-950 font-mono text-xs text-stone-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="assets/arnav.jpg" alt="Arnav Nigam" class="w-5 h-5 rounded-full object-cover ring-1 ring-orange-500/50" />
+        <span>© 2026 Arnav Nigam · Built with HTML5, Tailwind CSS & Vanilla JS.</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#signal" class="hover:text-orange-600 transition">↑ Back to Top</a>
+        <span>·</span>
+        <a href="./cv/" class="hover:text-orange-600 transition">Plain Résumé</a>
+        <span>·</span>
+        <a href="https://github.com/ArnavDev-code" target="_blank" rel="noopener" class="hover:text-orange-600 transition">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CASE FILE MODAL DRAWER ==================== -->
+  <div id="case-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-stone-950/75 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto">
+    <div class="modal-content relative w-full max-w-3xl bg-white dark:bg-stone-900 rounded-lg shadow-2xl border border-stone-200 dark:border-stone-700 max-h-[90vh] flex flex-col overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-stone-200 dark:border-stone-800 flex items-start justify-between gap-4 bg-[#f4eee3]/60 dark:bg-stone-900/80">
+        <div>
+          <div id="modal-case-number" class="font-mono text-xs font-bold text-orange-600 dark:text-orange-500 mb-1">
+            CASE FILE #001
+          </div>
+          <h3 id="modal-title" class="text-2xl font-serif-editorial text-stone-900 dark:text-stone-100">
+            Case Title
+          </h3>
+          <div id="modal-subtitle" class="text-xs text-stone-500 font-mono mt-0.5">
+            Subtitle
+          </div>
+        </div>
+
+        <button id="case-modal-close" class="p-2 text-stone-500 hover:text-stone-900 dark:hover:text-white rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition font-mono text-base">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-6 overflow-y-auto space-y-6">
+        
+        <!-- Tag & Question -->
+        <div>
+          <span id="modal-tag" class="px-2.5 py-1 rounded bg-[#f4eee3] dark:bg-stone-800 font-mono text-xs text-stone-700 dark:text-stone-300">
+            Tech Stack
+          </span>
+          <blockquote id="modal-question" class="italic text-stone-800 dark:text-stone-200 text-base mt-3 border-l-2 border-orange-500 pl-4 py-1">
+            "The Provocative Business Question"
+          </blockquote>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div id="modal-metrics" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Detailed Summary -->
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-stone-500 mb-2">Forensic Investigation Summary</h4>
+          <p id="modal-summary" class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+            Detailed investigation summary.
+          </p>
+        </div>
+
+        <!-- Key Insights -->
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-stone-500 mb-2">Key Analytical Discoveries</h4>
+          <ul id="modal-insights" class="space-y-2">
+            <!-- Populated dynamically -->
+          </ul>
+        </div>
+
+        <!-- Code Snippet / SQL -->
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider font-bold text-stone-500 mb-2">Query & Modeling Architecture</h4>
+          <pre class="p-4 bg-stone-950 text-stone-100 rounded-lg text-xs font-mono overflow-x-auto leading-relaxed border border-stone-800"><code id="modal-code">-- Code</code></pre>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-stone-200 dark:border-stone-800 bg-[#f4eee3]/40 dark:bg-stone-900 flex justify-between items-center font-mono text-xs">
+        <span class="text-stone-500">Press ESC or click outside to close</span>
+        <div class="flex gap-2">
+          <a id="modal-github-link" href="#" target="_blank" rel="noopener" class="px-3.5 py-1.5 bg-orange-600 hover:bg-orange-700 text-white rounded transition">
+            View on GitHub ↗
+          </a>
+          <a id="modal-demo-link" href="#" target="_blank" rel="noopener" class="px-3.5 py-1.5 bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 rounded transition">
+            Code & Artifacts ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== RECRUITER SCANNABLE MODAL ==================== -->
+  <div id="recruiter-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-stone-950/75 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto">
+    <div class="modal-content relative w-full max-w-4xl bg-white dark:bg-stone-900 rounded-lg shadow-2xl border border-stone-200 dark:border-stone-700 max-h-[92vh] flex flex-col overflow-hidden">
+      
+      <!-- Header -->
+      <div class="p-5 border-b border-stone-200 dark:border-stone-800 flex items-center justify-between bg-[#f4eee3]/60 dark:bg-stone-900">
+        <div class="flex items-center gap-2">
+          <span class="text-orange-500 font-mono text-sm">⚡</span>
+          <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+            Recruiter Scannable View (Quick Audit)
+          </h3>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="px-3 py-1 bg-stone-800 text-stone-100 text-xs font-mono rounded hover:bg-orange-600 transition">
+            Print / PDF
+          </button>
+          <a href="./cv/" class="text-xs font-mono text-orange-600 underline">
+            Open /cv/ ↗
+          </a>
+          <button id="recruiter-modal-close" class="text-stone-500 hover:text-stone-900 dark:hover:text-white p-1 font-mono text-base">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Scannable Content -->
+      <div class="p-6 overflow-y-auto space-y-6 text-sm text-stone-800 dark:text-stone-200">
+        
+        <!-- Bio Summary with Portrait -->
+        <div class="border-b border-stone-200 dark:border-stone-800 pb-4 flex flex-col sm:flex-row gap-4 items-start">
+          <img src="assets/arnav.jpg" alt="Arnav Nigam" class="w-16 h-16 rounded-md object-cover border border-stone-300 dark:border-stone-700 shadow-sm shrink-0" />
+          <div>
+            <h1 class="text-2xl font-bold font-serif-editorial text-stone-950 dark:text-stone-50">Arnav Nigam</h1>
+            <p class="font-mono text-xs text-orange-600 dark:text-orange-400 mt-0.5">Data Analyst & Business Analyst · VIT Bhopal B.Tech CSE (Cyber Forensics)</p>
+            <div class="flex flex-wrap gap-4 font-mono text-xs text-stone-500 mt-2">
+              <span>📞 +91 9415478274</span>
+              <span>✉️ arnavnigamknp@gmail.com</span>
+              <span>💼 linkedin.com/in/arnavnigam</span>
+              <span>💻 github.com/ArnavDev-code</span>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 mt-3 leading-relaxed">
+              Data-focused Business Analyst with hands-on experience in Python (Pandas), SQL (PostgreSQL), and BI tools (Power BI, Google Looker Studio). Skilled in EDA, ETL pipelines, and dashboard development for business decision-making. Seeking a Data Analyst role to drive insight-led strategies.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience Snippet -->
+        <div class="border-b border-stone-200 dark:border-stone-800 pb-4">
+          <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Experience</h4>
+          <div class="flex justify-between font-bold text-xs">
+            <span>Business Analyst Intern — Laneway</span>
+            <span class="font-mono text-stone-500">March 2026 – June 2026</span>
+          </div>
+          <ul class="list-disc list-inside text-xs text-stone-600 dark:text-stone-300 space-y-1 mt-2">
+            <li>Cleaned 6 cross-functional datasets; conducted EDA using descriptive statistics to uncover 5+ data-quality patterns.</li>
+            <li>Wrote 15+ optimized PostgreSQL queries analyzing lead quality and channel performance across 3 business units.</li>
+            <li>Built ETL pipelines cutting data preparation time by 30% and feeding clean data into ML models.</li>
+            <li>Built 4+ stakeholder dashboards (Looker Studio, Power BI) tracking 5 actionable KPIs.</li>
+          </ul>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="border-b border-stone-200 dark:border-stone-800 pb-4">
+          <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Key Projects</h4>
+          <div class="space-y-3 text-xs">
+            <div>
+              <div class="font-bold">UPI / FinTech Fraud Transaction Detection</div>
+              <p class="text-stone-600 dark:text-stone-300">590K+ records analyzed, 15+ PostgreSQL queries, Random Forest model (0.92 ROC-AUC, 79% precision on 3.5% prevalence fraud class).</p>
+            </div>
+            <div>
+              <div class="font-bold">HIFS: Hybrid Imbalanced Fraud Scoring</div>
+              <p class="text-stone-600 dark:text-stone-300">Isolation Forest anomaly detection + SMOTE oversampling + Soft-Voting ensemble driving 91.4% recall on severe &lt;0.2% class imbalance.</p>
+            </div>
+            <div>
+              <div class="font-bold">SME Lending Risk & Default Analytics Dashboard</div>
+              <p class="text-stone-600 dark:text-stone-300">2,000,000+ LendingClub loans modeled in Power BI with custom DAX Expected Loss calculations and vintage cohort risk tiering.</p>
+            </div>
+            <div>
+              <div class="font-bold">Customer Churn Analysis & Retention Strategy</div>
+              <p class="text-stone-600 dark:text-stone-300">45+ attributes analyzed, K-Means customer clustering, predictive churn model (82% accuracy, 85% precision), 20% projected churn drop.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Summary -->
+        <div>
+          <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Core Skills & Certifications</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed font-mono">
+            <strong>Stack:</strong> Python (Pandas, NumPy, Scikit-learn), PostgreSQL, MySQL, SQL Window Functions, Power BI, DAX, Looker Studio, Excel, EDA, ETL.<br />
+            <strong>Awards:</strong> 1st Place Winner, VIT Bhopal Datafest 2024 (predictive model champion).<br />
+            <strong>Certifications:</strong> Google IT Support, SQL (Intermediate), Tata Data Visualisation, Deloitte Australia, Accenture North America.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="app.js"></script>
+</body>
+</html>
